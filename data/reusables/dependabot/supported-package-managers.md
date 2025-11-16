@@ -106,7 +106,6 @@ For more information about using {% data variables.product.prodname_dependabot_v
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 {% data variables.product.prodname_dependabot %} runs Gradle to update the Gradle Wrapper: 
-
 * `gradle/wrapper/gradle-wrapper.properties`
 * `gradlew`
 * `gradlew.bat`

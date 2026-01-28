@@ -17,13 +17,13 @@ jobs:
   lint-entire-content-data:
     name: Lint entire content and data directories
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     steps:
       - name: Check that gh CLI is installed
         run: gh --version
 
       - name: Check out repo's default branch
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Set up Node and dependencies
         uses: ./.github/actions/node-npm-setup

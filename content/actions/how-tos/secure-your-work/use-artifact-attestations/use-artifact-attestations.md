@@ -42,7 +42,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v2
+     uses: actions/attest-build-provenance@v3
      with:
        subject-path: 'PATH/TO/ARTIFACT'
    ```
@@ -65,7 +65,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v2
+     uses: actions/attest-build-provenance@v3
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}{% endraw %}
        subject-digest: 'sha256:fedcba0...'
@@ -141,6 +141,14 @@ When you run your updated workflows, they will build your artifacts and generate
 
    The value of the `sbom-path` parameter should be set to the path to the JSON-formatted SBOM file you want to attest.
 
+## Uploading artifacts to the {% data variables.product.virtual_registry %}
+
+We recommend uploading attested assets to your organization's {% data variables.product.virtual_registry %}. This page displays artifacts' build history, deployment records, and storage details. You can use this data to prioritize security alerts or quickly connect vulnerable artifacts to their owning team, source code, and build run. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+{% data reusables.actions.attestation-virtual-registry %}
+
+For an example workflow, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/upload-linked-artifacts#generating-an-attestation).
+
 ## Verifying artifact attestations with the {% data variables.product.prodname_cli %}
 
 You can validate artifact attestations for binaries and container images and validate SBOM attestations using the {% data variables.product.prodname_cli %}. For more information, see the [`attestation`](https://cli.github.com/manual/gh_attestation) section of the {% data variables.product.prodname_cli %} manual.
@@ -190,3 +198,5 @@ gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \
 ## Next steps
 
 To keep your attestations relevant and manageable, you should delete attestations that are no longer needed. See [AUTOTITLE](/actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations).
+
+You can also generate release attestations to help consumers verify the integrity and origin of your releases. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).

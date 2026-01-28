@@ -53,7 +53,7 @@ Each **active committer** to at least one repository with an {% data variables.p
 * **Active committers** are committers who contributed to at least one repository  and have a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} license with your organization or enterprise. That is, they are also a member, an enterprise-managed user, an external collaborator, or have a pending invitation to join your organization or enterprise.
 * **Unique committers** is the number of active committers who contributed only to one repository, or only to repositories in one organization. You can free up this number of licenses by disabling {% data variables.product.prodname_GH_cs_or_sp %} for that repository or organization.
 
-> [!NOTE] When a repository is migrated to GitHub, GitHub Advanced Security only consumes licenses for commits and pushes made after migration, rather than considering all historic contributions from before the migration.
+> [!NOTE] When a repository is migrated to {% data variables.product.github %} using {% data variables.product.prodname_importer_proper_name %}, {% data variables.product.prodname_GHAS %} only consumes licenses for commits and pushes made _after_ migration. Historic contributions from _before_ the migration are not considered. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
 {% ifversion security-configurations %}You can see the active and unique committers to an organization on the Global settings page for {% data variables.product.UI_advanced_security %}. Under "{% data variables.product.prodname_secret_protection %} repositories" and "{% data variables.product.prodname_code_security %} repositories", summaries and repository-level details are reported. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).{% endif %}
 
@@ -96,10 +96,7 @@ There are two different ways to pay for licenses.
   * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/how-tos/products/add-advanced-security){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/add-advanced-security) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
   * If the usage of {% data variables.product.prodname_AS %} by active committers exceeds the number of licenses purchased, you need to purchase additional licenses to cover this overage usage.
 
-<!-- expires 2025-08-31 -->
-<!--This versioning is not needed once the related EDI PR for this article is merged (#57129).-->
-{% ifversion fpt or ghec %}To view your current license usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).{% endif %}
-<!-- end expires 2025-08-31 -->
+To view your current license usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
 
 ### Understanding usage
 

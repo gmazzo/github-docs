@@ -100,6 +100,9 @@ The table below summarizes the availability of {% data variables.product.prodnam
 |{% endif %}|
 | Custom patterns   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Delegated bypass for push protection    | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+|{% ifversion security-campaigns-secrets %}|
+| Security campaigns | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+|{% endif %}|
 | Security overview   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}
@@ -140,7 +143,7 @@ To learn about what you need to know to plan your deployment of {% ifversion gha
 
 ## Enabling features
 
-{% ifversion ghes %}
+{% ifversion ghes < 3.15 %}
 A site administrator must enable {% data variables.product.prodname_AS %} for {% data variables.location.product_location %} before you can use these features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
 {% endif %}
 

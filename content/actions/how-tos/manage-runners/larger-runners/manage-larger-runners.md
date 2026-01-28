@@ -2,7 +2,8 @@
 title: Managing larger runners
 shortTitle: Manage larger runners
 intro: 'You can configure {% data variables.actions.hosted_runner %}s for your organization or enterprise.'
-permissions: '{% data reusables.actions.larger-runner-permissions %}<br><br> Enterprise or organization owners can manage larger runners.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" permission can manage larger runners at the organization level.{% endif %}'
+product: '{% data variables.actions.github_hosted_larger_runners %} are only available for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans. <br><a href="https://github.com/pricing?ref_product=ghec&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_actions %}</span> {% octicon "link-external" height:16 %}</a>'
+permissions: 'Enterprise or organization owners can manage larger runners.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" permission can manage larger runners at the organization level.{% endif %}'
 versions:
   feature: actions-hosted-runners
 redirect_from:
@@ -35,7 +36,7 @@ Enterprise owners can add {% data variables.actions.hosted_runner %}s to an ente
 
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
 
-Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see [Allowing repositories to access larger runners](#allowing-repositories-to-access-larger-runners).
+Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization and control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see [Allowing repositories to access larger runners](#allowing-repositories-to-access-larger-runners).
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
@@ -191,7 +192,7 @@ You can control the maximum number of jobs allowed to run concurrently for speci
 > [!NOTE]
 > To use static IP addresses, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
-You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable and not in CIDR notation. By default, you can configure up to 10 different {% data variables.actions.hosted_runner %}s with IP ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
+You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable. By default, you can configure up to 10 different {% data variables.actions.hosted_runner %}s with IP ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
 
 The number of available IP addresses in the assigned ranges does not restrict number of concurrent jobs specified for autoscaling. Within a runner pool, there is a load balancer which allows for high reuse of the IP addresses in the assigned ranges. This ensures your workflows can run concurrently at scale while each machine is assigned a static IP address.
 

@@ -11,6 +11,8 @@ redirect_from:
   - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows
   - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
   - /actions/how-tos/troubleshooting-workflows
+  - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows
+  - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -95,6 +97,23 @@ For path filtering, evaluating diffs is limited to the first 300 files. If there
 ## Troubleshoot workflow execution
 
 Workflow execution involves any issues seen after the workflow was triggered and a workflow run has been created.
+
+{% ifversion fpt or ghec %}
+
+### Debugging job conditions
+
+If a job was skipped unexpectedly, or ran when you expected it to be skipped, you can view the expression evaluation to understand why:
+
+1. Click on the job in the workflow run.
+1. Download the log archive from the job's menu.
+1. Open the `JOB-NAME/system.txt` file.
+1. Look for the `Evaluating`, `Expanded`, and `Result` lines.
+
+The `Expanded` line shows the actual runtime values that were substituted into your `if` condition, making it clear why the expression evaluated to `true` or `false`.
+
+For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-job-condition-logs).
+
+{% endif %}
 
 ### Canceling Workflows
 
